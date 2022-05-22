@@ -1,0 +1,28 @@
+sql Q:1
+..........
+CREATE VIEW [dbo].drawTeams
+	AS SELECT * FROM FootBallLeague where Status = 'Draw';
+sql Q:2
+..........
+  CREATE TABLE [dbo].[FootBallLeague] (
+    [MatchId]     INT         NOT NULL,
+    [TeamName1]   NCHAR (100) NULL,
+    [TeamName2]   NCHAR (100) NULL,
+    [Status]      NCHAR (50)  NULL,
+    [WinningTeam] NCHAR (100) NULL,
+    [Points]      INT         NULL,
+    PRIMARY KEY CLUSTERED ([MatchId] ASC)
+);
+sql Q:3
+..........
+INSERT INTO [dbo].[FootBallLeague] ([MatchId], [TeamName1], [TeamName2], [Status], [WinningTeam], [Points]) VALUES (1001, N'Italy                                                                                               ', N'France                                                                                              ', N'Win                                               ', N'France                                                                                              ', 4)
+INSERT INTO [dbo].[FootBallLeague] ([MatchId], [TeamName1], [TeamName2], [Status], [WinningTeam], [Points]) VALUES (1002, N'Brazil                                                                                              ', N'Portugal                                                                                            ', N'Draw                                              ', NULL, 2)
+INSERT INTO [dbo].[FootBallLeague] ([MatchId], [TeamName1], [TeamName2], [Status], [WinningTeam], [Points]) VALUES (1003, N'England                                                                                             ', N'Japan                                                                                               ', N'Win                                               ', N'England                                                                                             ', 4)
+INSERT INTO [dbo].[FootBallLeague] ([MatchId], [TeamName1], [TeamName2], [Status], [WinningTeam], [Points]) VALUES (1004, N'USA                                                                                                 ', N'Russia                                                                                              ', N'Win                                               ', N'Russia                                                                                              ', 4)
+INSERT INTO [dbo].[FootBallLeague] ([MatchId], [TeamName1], [TeamName2], [Status], [WinningTeam], [Points]) VALUES (1005, N'Portugal                                                                                            ', N'Italy                                                                                               ', N'Draw                                              ', NULL, 2)
+sql Q:4
+.........
+select * from FootBallLeague where TeamName1 = 'Japan' or TeamName2 = 'Japan';
+sql Q:5
+.........
+select * from FootBallLeague where Status = 'Win'
